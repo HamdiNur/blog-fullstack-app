@@ -25,28 +25,30 @@ function PostForm({ onPostCreated }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-4 mb-6 space-y-3">
-      <h2 className="text-lg font-semibold text-gray-800">New Post</h2>
+    <form onSubmit={handleSubmit} className="border border-divider rounded-sm p-5 bg-white/40">
+      <p className="font-mono text-xs text-gold tracking-widest uppercase mb-3">
+        New Entry
+      </p>
       <input
         type="text"
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="w-full bg-transparent border-b border-divider pb-2 mb-4 font-display text-xl placeholder:text-ink/30 focus:outline-none focus:border-teal"
       />
       <textarea
-        placeholder="Content"
+        placeholder="Write something..."
         value={content}
         onChange={(e) => setContent(e.target.value)}
         rows={3}
-        className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="w-full bg-transparent border-b border-divider pb-2 mb-4 text-ink/80 placeholder:text-ink/30 focus:outline-none focus:border-teal resize-none"
       />
       <button
         type="submit"
         disabled={submitting}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
+        className="font-mono text-xs uppercase tracking-wide bg-teal text-paper px-4 py-2 rounded-sm hover:bg-teal/90 disabled:opacity-50 transition-colors"
       >
-        {submitting ? "Posting..." : "Create Post"}
+        {submitting ? "Saving..." : "Publish Entry"}
       </button>
     </form>
   )
