@@ -43,6 +43,16 @@ export async function addComment(postId, commentData) {
   if (!res.ok) throw new Error("Failed to add comment");
   return res.json();
 }
+// Update a post
+export async function updatePost(id, postData) {
+  const res = await fetch(`${BASE_URL}/posts/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(postData),
+  });
+  if (!res.ok) throw new Error("Failed to update post");
+  return res.json();
+}
 
 // Delete a comment
 export async function deleteComment(id) {
